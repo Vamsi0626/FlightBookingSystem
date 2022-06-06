@@ -1,0 +1,34 @@
+<body bg-color="yellow">
+  <button style="margin-left: 1200px; margin-top: 45px;" mat-raised-button color="warn" routerLink="">Logout</button>
+  <h1>Flight Schedules</h1>
+
+  <div class="center"><button (click)="addFlight()">Add New Flight</button></div><br>
+  <div id="customers">
+    <table style="background-color:#d4e2f0" id="customers">
+      <thead>
+        <tr>
+          <th>FLIGHT ID</th>
+          <th>FLIGHT NAME</th>
+          <th>FROM</th>
+          <th>TO</th>
+          <th>FARE (INR)</th>
+          <th>DATE</th>
+          <th>UPDATE</th>
+          <th>DELETE</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let trai of trains">
+          <td><span>{{trai.flightId}}</span></td>
+          <td><span>{{trai.flightName}}</span></td>
+          <td><span>{{trai.from}}</span></td>
+          <td><span>{{trai.to}}</span></td>
+          <td><span>{{trai.fare}}</span></td>
+          <td><span>{{trai.date}}</span></td>
+          <td><span><button type="button" routerLink="/update/{{trai.flightId}}">Update</button></span></td>
+          <td><span><button type="button" (click)="deleteflight(trai.flightId)">delete</button></span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</body>

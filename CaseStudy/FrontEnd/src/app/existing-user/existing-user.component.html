@@ -1,0 +1,23 @@
+<body>
+  <div class="form-center">
+    <form [formGroup]="adminlog" (ngSubmit)="validate()" #myForm="ngForm">
+      <h1 style="color: rgb(211, 188, 188);">User Login</h1>
+      <div class="form-group">
+        <label style="color: darkgray;">Username</label>
+        <input type="text" class="form-control" placeholder="Enter username" formControlName="username">
+        <div *ngIf="adminlog.controls['username'].touched && adminlog.controls['username'].errors" class="text-danger">
+          Please Enter Username
+        </div>
+      </div>
+      <div class="form-group">
+        <label style="color: darkgray;">Password</label>
+        <input type="password" class="form-control" placeholder="Enter password" formControlName="password">
+        <div *ngIf="adminlog.controls['password'].touched && adminlog.controls['password'].errors" class="text-danger">
+          Please Enter Password
+        </div>
+      </div>
+
+      <button type="submit" [disabled]="!myForm.form.valid" class="btn btn-info">Submit</button>
+    </form>
+  </div>
+</body>

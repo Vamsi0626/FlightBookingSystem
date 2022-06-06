@@ -1,0 +1,11 @@
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 40px; ;
+    padding: 20px;
+  }
+  body {
+    background-color: #d2eede;
+    }

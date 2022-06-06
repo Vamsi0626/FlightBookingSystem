@@ -1,0 +1,63 @@
+<!--<body>
+<div class="center">
+    <label style="color: rgb(233, 219, 215);">Enter Booking Id</label>&nbsp;
+    <input type="text" id="check" name="checkin" [(ngModel)]="checkin" >&nbsp;
+    <button type="submit" value="checkin" (click)="checkin()">Check In</button>
+</div>
+</body>-->
+
+<body>
+  <div class="center">
+    <form [formGroup]="adminlog" (ngSubmit)="checkin()" #myForm="ngForm">
+
+      <div class="center">
+        <div class="col-50">
+
+          <div class="form-group">
+            <h1 style="color: rgb(1, 16, 15);">Enter Booking Id</h1>
+            <input type="text" id="fname" name="name" width="100px" height="40px" placeholder="Enter your Booking Id"
+              class="form-control" formControlName="val">
+            <div *ngIf="adminlog.controls['val'].touched && adminlog.controls['val'].errors" class="text-danger">
+              Booking ID is Required
+            </div>
+
+            &nbsp;<button type="submit" [disabled]="!myForm.form.valid" value="checkin">Check In</button>
+          </div>
+        </div>
+
+
+      </div>
+
+    </form>
+
+  </div>
+</body>
+
+
+<!--<div id="customers">
+        <table id="customers">
+          <thead>
+          <tr>
+            <th>Ticket Id</th>
+            <th>Passenger Name</th>
+            <th>Phone Number</th>
+            <th>Email</th>
+            <th>From</th>
+            <th> To</th>      
+            <th>date</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+          <td><span>{{fList[0]}} </span></td>
+          <td><span>{{trai.fullName}}</span></td>
+          <td><span>{{trai.phoneNumber}}</span></td>
+          <td><span>{{trai.email}}</span></td>
+          <td><span>{{trai.airportFrom}}</span></td>
+          <td><span>{{trai.airportTo}}</span></td>      
+          <td><span>{{trai.date}}</span></td>
+            
+          </tr>
+          </tbody>
+        </table>
+      </div>-->

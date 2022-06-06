@@ -1,0 +1,78 @@
+<body>
+  <form>
+    <div class="container">
+      <h1> User Registeration Form</h1>
+      <hr>
+      <label> Firstname </label>
+      <input type="text" name="firstname" placeholder="Firstname" size="15" required />
+      <label> Middlename: </label>
+      <input type="text" name="middlename" placeholder="Middlename" size="15" required />
+      <label> Lastname: </label>
+      <input type="text" name="lastname" placeholder="Lastname" size="15" required />
+      <div>
+
+      </div>
+      <div>
+        <label>
+          Gender :
+        </label><br>
+        <input type="radio" value="Male" name="gender" checked> Male
+        <input type="radio" value="Female" name="gender"> Female
+        <input type="radio" value="Other" name="gender"> Other
+
+      </div>
+      <label>
+        Phone :
+      </label>
+      <input type="text" name="phone" placeholder="phone no." size="10" required>
+      <label for="email"><b>Email</b></label>
+      <input type="text" placeholder="Enter Email" name="email" required>
+
+      <button type="submit" name="submit" (click)="successful()">submit</button>
+    </div>
+  </form>
+</body>
+
+
+<!--<form>
+	<table>
+        <tr>
+			<td>
+				UserName
+			</td>
+
+			<td>
+				<input type="username"  placeholder="Enter user name" name="name">
+			</td>
+		</tr>
+		<tr>
+			<td>
+				Email Address
+			</td>
+
+			<td>
+				<input type="mail"  placeholder="Email" name="email">
+			</td>
+		</tr>
+<tr>
+<td>
+    Phone Number
+			</td>
+
+			<td>
+				<input type="text" placeholder="Phone Number" name="phone">
+			</td>
+		</tr>
+
+        <tr>
+			<td>
+				 Address
+			</td>
+
+			<td>
+				<input type="textarea"  placeholder="area" name="address">
+			</td>
+		</tr>
+        <button type="submit" name="submit" (click)="successful()">submit</button>
+	</table>
+</form> -->

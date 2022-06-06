@@ -1,0 +1,134 @@
+<body>
+  <div class="form-center">
+
+
+    <form [formGroup]="adminlog" (ngSubmit)="validate()" #myForm="ngForm">
+
+      <div class="form-group">
+        <label>Flightid</label>
+        <input type="text" class="form-control" placeholder="Enter Flightid" formControlName="flightId">
+        <div
+          *ngIf="adminlog.controls['flightId'].invalid && (adminlog.controls['flightId'].dirty || adminlog.controls['flightId'].touched)"
+          class="alert">
+          <div *ngIf="adminlog.controls['flightId'].errors?.required">
+            Please Enter Flight ID
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Flightname</label>
+        <input type="text" class="form-control" placeholder="Enter FlightName" formControlName="flightName">
+        <div *ngIf="adminlog.controls['flightName'].touched && adminlog.controls['flightName'].errors"
+          class="text-danger">
+          Please Enter Flight Name
+        </div>
+
+
+      </div>
+
+      <div class="form-group">
+        <label>FromLocation</label>
+        <input type="text" class="form-control" placeholder="Enter Source" formControlName="from">
+        <div *ngIf="adminlog.controls['from'].touched && adminlog.controls['from'].errors" class="text-danger">
+          Please Enter Source
+        </div>
+
+      </div>
+
+      <div class="form-group">
+        <label>ToLocation</label>
+        <input type="text" class="form-control" placeholder="Enter Destination" formControlName="to">
+        <div *ngIf="adminlog.controls['to'].touched && adminlog.controls['to'].errors" class="text-danger">
+          Please Enter Destination
+        </div>
+      </div>
+
+
+      <div class="form-group">
+        <label>Fare</label>
+        <input type="number" class="form-control" placeholder="Enter Fare" formControlName="fare">
+        <div *ngIf="adminlog.controls['fare'].touched && adminlog.controls['fare'].errors" class="text-danger">
+          Please Enter Fare
+        </div>
+      </div>
+
+
+
+      <div class="form-group">
+        <label>Date</label>
+        <input type="date" class="form-control" placeholder="Enter Date" formControlName="date">
+        <div *ngIf="adminlog.controls['date'].touched && adminlog.controls['date'].errors" class="text-danger">
+          Please Enter Date
+        </div>
+      </div>
+
+
+      <button type="submit" [disabled]="!myForm.form.valid" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+</body>
+
+<!--<body>
+    <div class="form-center">
+    <form [formGroup]="adminlog">
+      
+        <div class="form-group">
+          <label>Flightid</label>
+          <input type="number" class="form-control"  placeholder="Enter Flightid" formControlName="flightId">
+          <div *ngIf="adminlog.controls['flightId'].invalid && (adminlog.controls['flightId'].dirty || adminlog.controls['flightId'].touched)" class="alert">
+            <div *ngIf="adminlog.controls['flightId'].errors?.required">
+            Please Enter Flight ID
+          </div>
+          </div>   
+         </div>
+          <div class="form-group">
+            <label>Flightname</label>
+            <input type="text" class="form-control"  placeholder="Enter FlightName" formControlName="flightName"> 
+            <div *ngIf="adminlog.controls['flightName'].invalid && (adminlog.controls['flightName'].dirty || adminlog.controls['flightName'].touched)" class="alert">
+              <div *ngIf="adminlog.controls['flightName'].errors?.required">
+              Please Enter flightName
+            </div>
+            </div>  
+           </div>
+          <div class="form-group">
+            <label>FromLocation</label>
+            <input type="text" class="form-control" placeholder="Enter Source" formControlName="from">
+            <div *ngIf="adminlog.controls['from'].invalid && (adminlog.controls['from'].dirty || adminlog.controls['from'].touched)" class="alert">
+              <div *ngIf="adminlog.controls['from'].errors?.required">
+              Please Enter source
+            </div>
+            </div>
+          </div>
+          <div class="form-group">
+              <label>ToLocation</label>
+              <input type="text" class="form-control" placeholder="Enter Destination" formControlName="to">
+              <div *ngIf="adminlog.controls['to'].invalid && (adminlog.controls['to'].dirty || adminlog.controls['to'].touched)" class="alert">
+                <div *ngIf="adminlog.controls['to'].errors?.required">
+                Please Enter destination
+              </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Fare</label>
+              <input type="number" class="form-control" placeholder="Enter Price" formControlName="fare">
+              <div *ngIf="adminlog.controls['fare'].invalid && (adminlog.controls['fare'].dirty || adminlog.controls['fare'].touched)" class="alert">
+                <div *ngIf="adminlog.controls['fare'].errors?.required">
+                Please Enter Fare
+              </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Date</label>
+              <input type="date" class="form-control" placeholder="Enter Date" formControlName="date">
+              <div *ngIf="adminlog.controls['date'].invalid && (adminlog.controls['date'].dirty || adminlog.controls['date'].touched)" class="alert">
+                <div *ngIf="adminlog.controls['date'].errors?.required">
+                Please Enter date
+              </div>
+              </div>
+            </div>
+          
+          <button type="submit" class="btn btn-primary" (click)="validate()" >Submit</button>
+        </form>
+        </div>
+        </body>-->

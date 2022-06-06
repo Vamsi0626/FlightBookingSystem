@@ -1,0 +1,47 @@
+<body>
+    <button style="margin-left: 1400px;" mat-raised-button color="warn" routerLink="">Back</button>
+    <div class="center">
+        <h1 style="color:rgb(14, 170, 63);">Successfully Checked In</h1><br>
+    </div>
+    <div class="center">
+        <h1 style="color:rgb(14, 170, 63);">Welcome!!!</h1>
+    </div>
+
+
+    <div id="customers">
+      <form [formGroup]="adminlog" #myForm="ngForm">
+        <table id="customers">
+          <thead>
+          <tr>
+            <th>Ticket Id</th>
+            <th>Passenger Name</th>
+            <th>Phone Number</th>
+            <th>Email</th>
+            <th>FlightId</th>
+            <th>FlightName</th>
+            <th>From</th>
+            <th>To</th>      
+            <th>Fare</th>
+            <th>date</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let trai of fList">
+          <td><span>{{trai.id}}</span></td>
+          <td><span>{{trai.fullName}}</span></td>
+          <td><span>{{trai.phoneNumber}}</span></td>
+          <td><span>{{trai.email}}</span></td>
+          <td><span>{{trai.flightId}}</span></td>
+          <td><span>{{trai.flightName}}</span></td>
+          <td><span>{{trai.from}}</span></td>
+          <td><span>{{trai.to}}</span></td>    
+          <td><span>{{trai.fare}}</span></td>
+          <td><span>{{trai.date}}</span></td>
+            
+          </tr>
+          </tbody>
+        </table>
+      </form>
+    </div>
+</body>
+

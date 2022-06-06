@@ -1,0 +1,155 @@
+<div class="row">
+  <div class="col-75">
+    <div class="container">
+      <form [formGroup]="adminlog">
+
+        <div class="row">
+          <div class="col-50">
+            <h3>Passenger Details</h3>
+            <div class="form-group">
+              <label for="fname"><i class="fa fa-user"></i> Full Name</label>
+              <input type="text" id="fname" name="name" placeholder="Enter Full Name" class="form-control"
+                formControlName="fullName" style="width:400px; height:40px">
+            </div>
+
+            <div class="form-group">
+              <label for="pno"><i class="fa fa-user"></i> Phone Number</label>
+              <input type="text" id="phno" name="phno" pattern="^\d{10}$" required placeholder="Enter phone Number"
+                class="form-control" formControlName="phoneNumber" style="width:400px; height:40px">
+              <small class="text-danger" *ngIf="adminlog.errors?.['required']">Phone Number is required</small>
+              <small class="text-danger" *ngIf="adminlog.errors?.['pattern']">Phone Number should be 10 digit</small>
+            </div>
+
+            <div class="form-group">
+              <label for="email"><i class="fa fa-envelope"></i> Email</label>
+              <input type="text" id="email" name="email" placeholder="john@example.com" class="form-control"
+                placeholder="Enter Email" formControlName="email" style="width:400px; height:40px">
+            </div>
+
+            <div class="form-group">
+              <label>Flightid</label>
+              <input type="text" class="form-control" placeholder="Enter Flightid" formControlName="flightId"
+                style="width:400px; height:40px">
+            </div>
+            <div class="form-group">
+              <label>Flightname</label>
+              <input type="text" class="form-control" placeholder="Enter FlightName" formControlName="flightName"
+                style="width:400px; height:40px">
+              <div *ngIf="adminlog.controls['flightName'].touched && adminlog.controls['flightName'].errors"
+                class="text-danger">
+                Please Enter Flight Name
+              </div>
+            </div>
+            <div class="form-group">
+              <label>FromLocation</label>
+              <input type="text" class="form-control" placeholder="Enter Source" formControlName="from"
+                style="width:400px; height:40px">
+              <div *ngIf="adminlog.controls['from'].touched && adminlog.controls['from'].errors" class="text-danger">
+                Please Enter Source
+              </div>
+            </div>
+            <div class="form-group">
+              <label>ToLocation</label>
+              <input type="text" class="form-control" placeholder="Enter Destination" formControlName="to"
+                style="width:400px; height:40px">
+              <div *ngIf="adminlog.controls['to'].touched && adminlog.controls['to'].errors" class="text-danger">
+                Please Enter Destination
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Fare</label>
+              <input type="number" class="form-control" placeholder="Enter Price" formControlName="fare"
+                style="width:400px; height:40px">
+              <div *ngIf="adminlog.controls['fare'].touched && adminlog.controls['fare'].errors" class="text-danger">
+                Please Enter Fare
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Date</label>
+              <input type="date" class="form-control" placeholder="Enter Date" formControlName="date"
+                style="width:400px; height:40px">
+              <div *ngIf="adminlog.controls['date'].touched && adminlog.controls['date'].errors" class="text-danger">
+                Please Enter Date
+              </div>
+            </div>
+
+            <div class="col-50">
+              <h3>Payment</h3>
+              <label for="fname"> All Cards are Accepted</label>
+
+              <label for="cname">Name on Card</label>
+              <input type="text" id="cname" name="cardname" placeholder="Ex:John More Doe"
+                style="width:400px; height:40px">
+
+
+
+              <label for="ccnum">Credit card number</label>
+              <input type="text" id="ccnum" name="cardnumber" placeholder="Ex:1111-2222-3333-4444"
+                style="width:400px; height:40px">
+              <label for="expmonth">Exp Month</label>
+              <input type="text" id="expmonth" name="expmonth" placeholder="Ex:08" style="width:400px; height:40px">
+              <small *ngIf="adminlog.errors?.['minlength']" class="text-danger">Month must be 2 characters</small>
+              <div class="row">
+                <div class="col-50">
+                  <label for="expyear">Exp Year</label>
+                  <input type="text" id="expyear" name="expyear" placeholder="Ex:22">
+                  <small *ngIf="adminlog.errors?.['minlength']" class="text-danger">Year must be 2 characters</small>
+                </div>
+                <div class="col-50">
+                  <label for="cvv">CVV</label>
+                  <small *ngIf="adminlog.errors?.['minlength']" class="text-danger">CVV must be 3 characters</small>
+                  <input type="text" id="cvv" name="cvv" placeholder="ex:352">
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <input type="submit" value="Pay" class="btn" (click)="bookFlight()">
+      </form>
+    </div>
+  </div>
+
+
+
+  <!--<div>
+<form [formGroup]="adminlog" >
+    
+      <div class="form-group">
+        <label>First name</label>
+        <input type="text" class="form-control"  placeholder="Enter FirstName" formControlName="firstName">   
+       </div>
+      <div class="form-group">
+        <label>Last name </label>
+        <input type="text" class="form-control" placeholder="Enter Lastname" formControlName="lastName">
+      </div>
+      <div class="form-group">
+        <label>Gender </label>
+        <input type="text" class="form-control" placeholder="Enter Gender" formControlName="gender">
+      </div>
+      <div class="form-group">
+        <label>Phone Number</label>
+        <input type="number" class="form-control" placeholder="Enter Destination" formControlName="phoneNumber">
+      </div>
+      <div class="form-group">
+          <label>Email</label>
+          <input type="email" class="form-control" placeholder="Enter Destination" formControlName="email">
+        </div>
+        
+       
+        <div class="form-group">
+          <label>Number of tickets</label>
+          <input type="number" class="form-control" placeholder="Enter number of Tickets" min="1" max="9" formControlName="numberOfTickets">
+        </div>
+        <div class="form-group">
+          <label>AirPort From</label>
+          <input type="text" class="form-control" placeholder="Enter Source airport" formControlName="airportFrom">
+        </div>
+        <div class="form-group">
+          <label>AirPort To</label>
+          <input type="text" class="form-control" placeholder="Enter Destination airport" formControlName="airportTo">
+        </div>
+      
+      <button type="submit" class="btn btn-primary" (click)="bookFlight()">Next</button>
+    </form></div>-->

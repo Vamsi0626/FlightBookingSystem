@@ -1,0 +1,25 @@
+<html>
+
+<body>
+    <div class="center">
+        <button style="margin-left: 1200px;margin-top: 45px;" mat-raised-button color="warn"
+            routerLink="">Logout</button>
+
+    </div>
+    <div class="center">
+        <h1 style="color:rgb(61, 206, 61);">Successfully Booked Your ticket!</h1><br>
+
+    </div>
+    <div class="center">
+        <h1 style="color:rgb(13, 73, 40);">Booking Id: </h1><br>
+
+
+        <tr *ngFor="let trai of train; let i=index">
+            <h1 style="color:rgb(51, 69, 148);">
+                <td *ngIf="i>=train.length -1">{{trai.id}}</td>
+            </h1>
+        </tr>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,75 @@
+<body>
+  <form [formGroup]="adminlog" (ngSubmit)="searchFlight()" #myForm="ngForm">
+    <div class="center" class="form-group" style="width: 70%">
+      <ul class="nav">
+        <li><span> <select style="width: 100%" type="select" id="site-search" [(ngModel)]="from" class="form-control"
+              placeholder="Enter From" formControlName="from">
+              <div *ngIf="adminlog.controls['from'].touched && adminlog.controls['from'].errors" class="text-danger">
+                Please select From
+              </div>
+              <option>Select From</option>
+              <option *ngFor="let f of uniqueFrom">{{f}}
+
+              </option>
+            </select>
+          </span><br><br>
+
+        </li>
+
+        <li>
+          <select style="width: 100%" type="select" [(ngModel)]="to" class="form-control"
+            placeholder="Enter Destination" formControlName="to">
+            <div *ngIf="adminlog.controls['to'].touched && adminlog.controls['to'].errors" class="text-danger">
+              Please select Destination
+            </div>
+            <br><br>
+            <option>Select Destination</option>
+            <option *ngFor="let f of uniqueTo">{{f}}</option>
+          </select>
+        </li>
+
+        <!--<li>
+          <input style="width: 100%" type="date" [(ngModel)]="date" class="form-control" placeholder="yyyy-mm-dd"
+            formControlName="date">
+          <div *ngIf="adminlog.controls['date'].touched && adminlog.controls['date'].errors" class="text-danger">
+            Please Enter Date
+          </div>
+        </li>-->
+        <li>
+          <button type="submit" [disabled]="!myForm.form.valid" class="btn btn-default">Search</button>
+        </li>
+      </ul>
+    </div>
+
+
+
+
+
+    <div id="customers">
+      <table id="customers">
+        <thead>
+          <tr>
+            <th>Flight Id</th>
+            <th>Flight Name</th>
+            <th>From</th>
+            <th> To</th>
+            <th>Fare</th>
+            <th>date</th>
+            <th>Booking</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let trai of fList">
+            <td><span>{{trai.flightId}}</span></td>
+            <td><span>{{trai.flightName}}</span></td>
+            <td><span>{{trai.from}}</span></td>
+            <td><span>{{trai.to}}</span></td>
+            <td><span>{{trai.fare}}</span></td>
+            <td><span>{{trai.date}}</span></td>
+            <td><button type="button" routerLink="/book/{{trai.flightId}}">Book</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </form>
+</body>

@@ -1,0 +1,13 @@
+.gap {
+    margin-right: 550px;
+ }
+ 
+ .spacer{
+    flex:1 1 auto;
+}
+body{
+    background-image: url("/assets/images/background.jpg");
+    background-size: 100% ;
+    background-size: cover;
+    padding: 100px;
+}
